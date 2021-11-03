@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="css/ixstyles.css" rel="stylesheet">
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+
+        <div class="container-top">
+            <h1>Curriculum Vitae</h1>
+
+            <hr class="break"> 
+            <form >
+
+                <div class="row mb-3">
+                    <label for="navn" class="col-sm-2 col-form-label">Full name:</label>
+                    <div class="col-sm-10">
+                    <input type="text" class="form-control" id="navn"></div>
+               
+                </div>
+                <div class="row mb-3">
+                    <label for="adresse" class="col-sm-2 col-form-label">Adresse:</label>
+                    <div class="col-sm-10">
+                    <input type="text" class="form-control" id="adresse"></div>
+                </div>
+                  
+                <div class="row mb-3">
+                    <label for="mail" class="col-sm-2 col-form-label">Mail:</label>
+                    <div class="col-sm-10">
+                    <input type="email" class="form-control" id="mail"></div>
+                </div>
+                
+                <div class="row mb-3">
+                    <label for="mobil" class="col-sm-2 col-form-label">Mobil: </label>
+                    <div class="col-sm-2"> 
+                        <select class="form-select" aria-label="country">
+                            <option seleceted value="Norway">🇳🇴</option>
+                            <option value="Sweden">🇸🇪</option>
+                            <option value="Russia">🇷🇺</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-8"><input type="text" class="form-control" aria-label="mobil"></div>    
+                </div>
+
+                <div class="row mb-3">
+                    <label for="sivilstand" class="col-sm-2 col-form-label">Sivilstand:</label>
+                    <div class="col-sm-10"> 
+                        <select class="form-select" aria-label="sivilstand">
+                            <option selected></option>
+                            <option value="Ugift">Ugift</option>
+                            <option value="Gift">Gift</option>
+                            <option value="Annet">Annet</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="fodt" class="col-sm-2 col-form-label">Født:</label>
+                    <div class="col-sm-10">
+                    <input type="date" class="form-control" id="fodt"></div>
+                </div>
+
+                <div class="centered_btn">
+                        <button type="submit" class="btn btn-primary">Reset</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="container-middle">
+            <form>
+                <h3>Nøkkelkompetanse:</h3>
+                <div class="row mb-3">
+                    <div class="col-12"> 
+                        <textarea class="form-control" id="kompetanse"></textarea>
+                    </div>
+                </div>
+                
+                <hr class="break"> 
+
+                <div class="row mb-1">
+                    <h3> Utdannelse</h3>
+                </div>
+                <div id="ed_head"class="row mb-3">
+                    <label for="yearEd" class="col-md-4 col-form-label"><h5>Year</h5></label>
+                    <label for="university" class="col-md-4 col-form-label"><h5>University</h5></label>
+                    <label for="speciality" class="col-md-4 col-form-label"><h5>Speciality</h5></label>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <input type="month" class="form-control" id="yearEd">
+                    </div>
+                    <div class="col-md-4">
+                       <input type="text" class="form-control" id="university">
+                   </div>
+                    <div class="col-md-4">
+                       <input type="text" class="form-control" id="speciality">
+                   </div>
+                </div>
+
+                <hr class="break"> 
+
+                <div class="row mb-1">
+                    <h3>Yrkeserfaring</h3>
+                </div>
+                <div id="wrk_head" class="row mb-3">
+                    <label for="yearWork" class="col-md-4 col-form-label"><h5>Year</h5></label>
+                    <label for="company" class="col-md-4 col-form-label"><h5>Company</h5></label>
+                    <label for="title" class="col-md-4 col-form-label"><h5>Title</h5></label>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <input type="month" class="form-control" id="yearWork">
+                    </div>
+                    <div class="col-md-4">
+                       <input type="text" class="form-control" id="company">
+                   </div>
+                    <div class="col-md-4">
+                       <input type="text" class="form-control" id="title">
+                   </div>
+                </div>
+                
+                <hr class="break"> 
+
+                <div class="row mb-1">
+                    <h3>Kurs</h3>
+                </div>
+                <div id="kurs_head" class="row mb-3">
+                    <label for="yearKurs" class="col-md-4 col-form-label"><h5>Year</h5></label>
+                    <label for="place" class="col-md-4 col-form-label"><h5>Place</h5></label>
+                    <label for="course" class="col-md-4 col-form-label"><h5>Course</h5></label>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <input type="month" class="form-control" id="yearKurs">
+                    </div>
+                    <div class="col-md-4">
+                       <input type="text" class="form-control" id="place">
+                   </div>
+                    <div class="col-md-4">
+                       <input type="text" class="form-control" id="course">
+                   </div>
+                </div>
+
+            </form>
+        </div>    
+        
+
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+
+  </body>
+</html>
