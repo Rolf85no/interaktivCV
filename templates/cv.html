@@ -5,9 +5,10 @@
         <link rel="stylesheet" href="static/styles.css">
         <title>CV</title>
     </head>
-    <body onload="getText()">
+    <body>
         <div class="main-container">
-            
+        
+        <!-- Navn, adresse, etc-->    
             <table class="persinfotable">
                 <caption><h1>Curriculum Vitae</h1></caption>
                 
@@ -28,7 +29,7 @@
                     <td><span id="cvMobil"></span></td>
                 </tr>
                 <tr>
-                    <th scope="row">Sivilstatus</th>
+                    <th scope="row">Sivilstand</th>
                     <td><span id="cvSivilstand"></span></td>
                 </tr>
                 <tr>
@@ -38,9 +39,11 @@
                     
             </table>
 
+        <!--Nøkkelkompetanse, utdannelse, etc -->
+
         <div class="nkompetanse">
             <h2>Nøkkelkompetanse: </h2>
-            <p id="cvKompetanse"> </p>
+            <pre><span id="cvKompetanse"></span></pre>
         </div>
         
             <table class="utdanningstabell">
@@ -48,10 +51,10 @@
                 <thead>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td scope="col">i</td>
-                        <td></td>
-                        <td></td>
+                    <tr id="cvUtdanning_row">
+                        <td scope="col"><span id="cvYearEd"></span></td>
+                        <td><span id="cvUniversity"></span></td>
+                        <td><span id="cvSpeciality"></span></td>
                     </tr>
                 </tbody>
             </table>
@@ -94,7 +97,15 @@
             <button> Download PDF </button>
         </div>
 
-        <script src="static/main.js"></script>
+        <script> 
+            window.addEventListener('DOMContentLoaded', (event) => {
+                window.setInterval(function() {
+                    getText();
+            }, 1);
+                
+            });        
+    </script>
+    <script src="static/main.js"></script>
 
     </body>
 

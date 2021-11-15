@@ -10,18 +10,18 @@
     <link href="static/ixstyles.css" rel="stylesheet">
     <title>Home</title>
   </head>
-  <body oninput="copyText()">
+  <body>
 
     <a href="/cv"> CV</a>
     
-    <div class="container-fluid">
+    <div class="container-fluid" >
 
-        <div class="container-top">
+        <div class="container-top" id="personalia">
             <h1>Curriculum Vitae</h1>
 
             <hr class="break"> 
             <form>
-                
+                <!-- Navn, adresse, etc--> 
                 <div class="row mb-3">
                     <label for="navn" class="col-sm-2 col-form-label">Full name:</label>
                     <div class="col-sm-10">
@@ -43,7 +43,7 @@
                 <div class="row mb-3">
                     <label for="mobil" class="col-sm-2 col-form-label">Mobil: </label>
                     <div class="col-sm-2"> 
-                        <select class="form-select" aria-label="country">
+                        <select class="form-select" aria-label="country" id="country">
                             <option seleceted value="Norway">🇳🇴</option>
                             <option value="Sweden">🇸🇪</option>
                             <option value="Russia">🇷🇺</option>
@@ -73,17 +73,20 @@
                 <div class="centered_btn">
                         <button type="submit" class="btn btn-primary" onClick="reset()">Reset</button>
                 </div>
-            </form>
-        </div>
 
-        <div class="container-middle">
-            <form>
                 <h3>Nøkkelkompetanse:</h3>
                 <div class="row mb-3">
                     <div class="col-12"> 
                         <textarea class="form-control" id="kompetanse"></textarea>
                     </div>
                 </div>
+
+            </form>
+        </div>
+
+        <!--Nøkkelkompetanse, utdannelse, etc -->
+        <div class="container-middle" id="komptanseRows">
+            <form>
                 
                 <hr class="break"> 
 
@@ -96,7 +99,7 @@
                     <label for="speciality" class="col-md-4 col-form-label"><h5>Speciality</h5></label>
                 </div>
 
-                <div class="row mb-3">
+                <div class="row mb-3" id="utdanning_row" onkeyup="copyTextKomp()">
                     <div class="col-md-4">
                         <input type="month" class="form-control" id="yearEd">
                     </div>
@@ -106,6 +109,10 @@
                     <div class="col-md-4">
                        <input type="text" class="form-control" id="speciality">
                    </div>
+                </div>
+
+                <div class="centered_btn">
+                    <button type="button" class="btn btn-primary" id="addEd" onclick="addLine()">+</button>
                 </div>
 
                 <hr class="break"> 

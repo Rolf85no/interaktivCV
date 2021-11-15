@@ -99,6 +99,11 @@ tbody td,tr, th[scope="row"] {
     text-align: left;
 }
 
+pre{
+    margin: 2px 10px;
+    text-align: left;
+}
+
 .nkompetanse{
     width: 100%;
     margin: 50px 0;
