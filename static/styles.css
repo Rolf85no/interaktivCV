@@ -64,7 +64,7 @@ tbody td,tr, th[scope="row"] {
     margin-bottom: 50px;
 }
 
-.btn {
+.download {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -84,7 +84,7 @@ tbody td,tr, th[scope="row"] {
     text-align: center;
  }
  
- .btn:hover {
+ .download:hover {
     background: #871234;
     border: solid #871234 0;
     -webkit-border-radius: 10px;

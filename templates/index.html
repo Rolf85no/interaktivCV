@@ -11,162 +11,307 @@
     <title>Home</title>
   </head>
   <body>
+      <!----------------------------------FORM----------------------->
+      <table class="table">
+        <tr>
+            <td class="skjema">
 
-    <a href="/cv"> CV</a>
-    
-    <div class="container-fluid" >
+                <div class="container-fluid" >
 
-        <div class="container-top" id="personalia">
-            <h1>Curriculum Vitae</h1>
+                    <div class="container-top" id="personalia">
+                        <form>
+                            <!-- Navn, adresse, etc--> 
+                            <div class="row mb-3">
+                                <label for="navn" class="col-sm-2 col-form-label">Full name:</label>
+                                <div class="col-sm-10">
+                                <input type="text" class="form-control" id="navn"></div>
+                        
+                            </div>
+                            <div class="row mb-3">
+                                <label for="adresse" class="col-sm-2 col-form-label">Adresse:</label>
+                                <div class="col-sm-10">
+                                <input type="text" class="form-control" id="adresse"> </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <label for="mail" class="col-sm-2 col-form-label">Mail:</label>
+                                <div class="col-sm-10">
+                                <input type="email" class="form-control" id="email"></div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <label for="mobil" class="col-sm-2 col-form-label">Mobil: </label>
+                                <div class="col-sm-2"> 
+                                    <select class="form-select" aria-label="country" id="country">
+                                        <option seleceted value="Norway">🇳🇴</option>
+                                        <option value="Sweden">🇸🇪</option>
+                                        <option value="Russia">🇷🇺</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-8"><input type="number" maxlength="8" class="form-control" aria-label="mobil" id="mobil"></div>    
+                            </div>
 
-            <hr class="break"> 
-            <form>
-                <!-- Navn, adresse, etc--> 
-                <div class="row mb-3">
-                    <label for="navn" class="col-sm-2 col-form-label">Full name:</label>
-                    <div class="col-sm-10">
-                    <input type="text" class="form-control" id="navn"></div>
-               
+                            <div class="row mb-3">
+                                <label for="sivilstand" class="col-sm-2 col-form-label">Sivilstand:</label>
+                                <div class="col-sm-10"> 
+                                    <select class="form-select" aria-label="sivilstand" id="sivilstand">
+                                        <option selected></option>
+                                        <option value="Ugift">Ugift</option>
+                                        <option value="Gift">Gift</option>
+                                        <option value="Annet">Annet</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="fodt" class="col-sm-2 col-form-label">Født:</label>
+                                <div class="col-sm-10">
+                                <input type="date" class="form-control" id="fodt"></div>
+                            </div>
+
+                            <div class="centered_btn">
+                                    <button type="submit" class="btn btn-primary" onClick="reset()">Reset</button>
+                            </div>
+
+                            <h3>Nøkkelkompetanse:</h3>
+                            <div class="row mb-3">
+                                <div class="col-12"> 
+                                    <textarea class="form-control" id="kompetanse"></textarea>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <!--Nøkkelkompetanse, utdannelse, etc -->
+                    <div class="container-middle" id="kompetanseRows">
+                        <form>                            
+                            <hr class="break"> 
+
+                            <div class="row mb-1">
+                                <h3> Utdannelse</h3>
+                            </div>
+                            <div id="ed_head"class="row mb-3">
+                                <label for="yearEd" class="col-md-4 col-form-label"><h5>Year</h5></label>
+                                <label for="university" class="col-md-4 col-form-label"><h5>University</h5></label>
+                                <label for="speciality" class="col-md-4 col-form-label"><h5>Speciality</h5></label>
+                            </div>
+
+                            <!-------Utdannelse--------------->
+                            <div class="row mb-3" id="utdanning_row">
+                                <div class="col-md-4">
+                                    <input type="month" class="form-control" id="yearEd">
+                                </div>
+                                <div class="col-md-4">
+                                <input type="text" class="form-control" id="university">
+                            </div>
+                                <div class="col-md-4">
+                                <input type="text" class="form-control" id="speciality">
+                            </div>
+                            </div>
+
+                            <div class="centered_btn">
+                                <button type="button" class="btn btn-primary" id="addEd" onclick="addLine(document.getElementById('utdanning_row'),document.getElementById('cvUtdanning_row'), 0)">+</button>
+                            </div>
+
+                            <hr class="break"> 
+
+                            <!-------Yrkeserfaring----------->
+                            <div class="row mb-1">
+                                <h3>Yrkeserfaring</h3>
+                            </div>
+                            <div id="wrk_head" class="row mb-3">
+                                <label for="yearWork" class="col-md-4 col-form-label"><h5>Year</h5></label>
+                                <label for="company" class="col-md-4 col-form-label"><h5>Company</h5></label>
+                                <label for="title" class="col-md-4 col-form-label"><h5>Title</h5></label>
+                            </div>
+
+                            <!----------------work-row-------------->
+                            <div class="row mb-3" id="work_row">
+                                <div class="col-md-4">
+                                    <input type="month" class="form-control" id="yearWork">
+                                </div>
+                                <div class="col-md-4">
+                                <input type="text" class="form-control" id="company">
+                            </div>
+                                <div class="col-md-4">
+                                <input type="text" class="form-control" id="title">
+                            </div>
+                            </div>
+
+                            <div class="centered_btn">
+                                <button type="button" class="btn btn-primary" id="addWork" onclick="addLine(document.getElementById('work_row'),document.getElementById('cvWork_row'))">+</button>
+                            </div>
+                            
+                            <hr class="break">
+                            
+                            <!---------------Kurs----------------->
+
+                            <div class="row mb-1">
+                                <h3>Kurs</h3>
+                            </div>
+                            <div id="kurs_head" class="row mb-3">
+                                <label for="yearKurs" class="col-md-4 col-form-label"><h5>Year</h5></label>
+                                <label for="place" class="col-md-4 col-form-label"><h5>Place</h5></label>
+                                <label for="course" class="col-md-4 col-form-label"><h5>Course</h5></label>
+                            </div>
+
+                            <!---------------Kurs-row------------>
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <input type="month" class="form-control" id="yearKurs">
+                                </div>
+                                <div class="col-md-4">
+                                <input type="text" class="form-control" id="place">
+                            </div>
+                                <div class="col-md-4">
+                                <input type="text" class="form-control" id="course">
+                            </div>
+                            </div>
+
+                        </form>
+                    </div>    
+                    
+
                 </div>
-                <div class="row mb-3">
-                    <label for="adresse" class="col-sm-2 col-form-label">Adresse:</label>
-                    <div class="col-sm-10">
-                    <input type="text" class="form-control" id="adresse"> </div>
+            </td>
+
+            <!----------------------------------------CV-------------------->
+
+            <td class="cv">
+                    <form id="cv-form">
+                        <!-- Navn, adresse, etc--> 
+                        <div class="row mb-3">
+                            <label for="cvNavn" class="col-sm-2 col-form-label">Full name:</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control" id="cvNavn"></div>
+                    
+                        </div>
+                        <div class="row mb-3">
+                            <label for="cvAdresse" class="col-sm-2 col-form-label">Adresse:</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control" id="cvAdresse"> </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <label for="cvEmail" class="col-sm-2 col-form-label">Mail:</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control" id="cvEmail"></div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="cvMobil" class="col-sm-2 col-form-label">Mobil:</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control" id="cvMobil"></div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="cvSivilstand" class="col-sm-2 col-form-label">Sivilstand</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control" id="cvSivilstand"> </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="cvFodt" class="col-sm-2 col-form-label">Født:</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control" id="cvFodt"></div>
+                        </div>
+
+                        <hr class="break-cv">
                 </div>
-                  
-                <div class="row mb-3">
-                    <label for="mail" class="col-sm-2 col-form-label">Mail:</label>
-                    <div class="col-sm-10">
-                    <input type="email" class="form-control" id="email"></div>
-                </div>
+
+                    <h3>Nøkkelkompetanse:</h3>
+                            <div class="row mb-3">
+                                <div class="col-12"> 
+                                    <textarea class="form-control" id="cvKompetanse"></textarea>
+                                </div>
+                            </div>
+
+                            <hr class="break"> 
+
+                            <!--------------CV-Utdannelse---------->
+
+                            <div class="row mb-1"><h3> Utdannelse</h3></div>
+
+                            <div id="ed_head"class="row mb-3">
+                                <label for="cvYearEd" class="col-md-4 col-form-label"><h5>Year</h5></label>
+                                <label for="cvUniversity" class="col-md-4 col-form-label"><h5>University</h5></label>
+                                <label for="cvSpeciality" class="col-md-4 col-form-label"><h5>Speciality</h5></label>
+                            </div>
+
+                            <div class="row mb-3" id="cvUtdanning_row">
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" id="cvYearEd">
+                                </div>
+                                <div class="col-md-4">
+                                <input type="text" class="form-control" id="cvUniversity">
+                            </div>
+                                <div class="col-md-4">
+                                <input type="text" class="form-control" id="cvSpeciality">
+                            </div>
+                            </div>
+
+                            <hr class="break-cv"> 
+
+                            <!----------------CV-arbeidserfaring---------->
+
+                            <div class="row mb-1">
+                                <h3>Yrkeserfaring</h3>
+                            </div>
+
+                            <div id="wrk_head" class="row mb-3">
+                                <label for="cvYearWork" class="col-md-4 col-form-label"><h5>Year</h5></label>
+                                <label for="cvCompany" class="col-md-4 col-form-label"><h5>Company</h5></label>
+                                <label for="cvTitle" class="col-md-4 col-form-label"><h5>Title</h5></label>
+                            </div>
+
+                            <!----------------CV-work-row-------------->
+
+                            <div class="row mb-3" id="cvWork_row">
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" id="cvYearWork">
+                                </div>
+                                <div class="col-md-4">
+                                <input type="text" class="form-control" id="cvCompany">
+                            </div>
+                                <div class="col-md-4">
+                                <input type="text" class="form-control" id="cvTitle">
+                            </div>
+                            </div>
+                            
+                            <hr class="break"> 
+
+                            <div class="row mb-1">
+                                <h3>Kurs</h3>
+                            </div>
+                            <div id="kurs_head" class="row mb-3">
+                                <label for="cvYearKurs" class="col-md-4 col-form-label"><h5>Year</h5></label>
+                                <label for="cvPlace" class="col-md-4 col-form-label"><h5>Place</h5></label>
+                                <label for="cvCourse" class="col-md-4 col-form-label"><h5>Course</h5></label>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" id="cvYearKurs">
+                                </div>
+                                <div class="col-md-4">
+                                <input type="text" class="form-control" id="cvPlace">
+                            </div>
+                                <div class="col-md-4">
+                                <input type="text" class="form-control" id="cvCourse">
+                                </div>
+                            </div>
                 
-                <div class="row mb-3">
-                    <label for="mobil" class="col-sm-2 col-form-label">Mobil: </label>
-                    <div class="col-sm-2"> 
-                        <select class="form-select" aria-label="country" id="country">
-                            <option seleceted value="Norway">🇳🇴</option>
-                            <option value="Sweden">🇸🇪</option>
-                            <option value="Russia">🇷🇺</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-8"><input type="number" maxlength="8" class="form-control" aria-label="mobil" id="mobil"></div>    
-                </div>
-
-                <div class="row mb-3">
-                    <label for="sivilstand" class="col-sm-2 col-form-label">Sivilstand:</label>
-                    <div class="col-sm-10"> 
-                        <select class="form-select" aria-label="sivilstand" id="sivilstand">
-                            <option selected></option>
-                            <option value="Ugift">Ugift</option>
-                            <option value="Gift">Gift</option>
-                            <option value="Annet">Annet</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <label for="fodt" class="col-sm-2 col-form-label">Født:</label>
-                    <div class="col-sm-10">
-                    <input type="date" class="form-control" id="fodt"></div>
-                </div>
-
-                <div class="centered_btn">
-                        <button type="submit" class="btn btn-primary" onClick="reset()">Reset</button>
-                </div>
-
-                <h3>Nøkkelkompetanse:</h3>
-                <div class="row mb-3">
-                    <div class="col-12"> 
-                        <textarea class="form-control" id="kompetanse"></textarea>
-                    </div>
-                </div>
-
-            </form>
-        </div>
-
-        <!--Nøkkelkompetanse, utdannelse, etc -->
-        <div class="container-middle" id="komptanseRows">
-            <form>
+            
+                        <button class="download"> Download PDF </button>
                 
-                <hr class="break"> 
+                </form>
+                <script src="static/main.js"></script>
+            
+            </td>
 
-                <div class="row mb-1">
-                    <h3> Utdannelse</h3>
-                </div>
-                <div id="ed_head"class="row mb-3">
-                    <label for="yearEd" class="col-md-4 col-form-label"><h5>Year</h5></label>
-                    <label for="university" class="col-md-4 col-form-label"><h5>University</h5></label>
-                    <label for="speciality" class="col-md-4 col-form-label"><h5>Speciality</h5></label>
-                </div>
-
-                <div class="row mb-3" id="utdanning_row" onkeyup="copyTextKomp()">
-                    <div class="col-md-4">
-                        <input type="month" class="form-control" id="yearEd">
-                    </div>
-                    <div class="col-md-4">
-                       <input type="text" class="form-control" id="university">
-                   </div>
-                    <div class="col-md-4">
-                       <input type="text" class="form-control" id="speciality">
-                   </div>
-                </div>
-
-                <div class="centered_btn">
-                    <button type="button" class="btn btn-primary" id="addEd" onclick="addLine()">+</button>
-                </div>
-
-                <hr class="break"> 
-
-                <div class="row mb-1">
-                    <h3>Yrkeserfaring</h3>
-                </div>
-                <div id="wrk_head" class="row mb-3">
-                    <label for="yearWork" class="col-md-4 col-form-label"><h5>Year</h5></label>
-                    <label for="company" class="col-md-4 col-form-label"><h5>Company</h5></label>
-                    <label for="title" class="col-md-4 col-form-label"><h5>Title</h5></label>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <input type="month" class="form-control" id="yearWork">
-                    </div>
-                    <div class="col-md-4">
-                       <input type="text" class="form-control" id="company">
-                   </div>
-                    <div class="col-md-4">
-                       <input type="text" class="form-control" id="title">
-                   </div>
-                </div>
-                
-                <hr class="break"> 
-
-                <div class="row mb-1">
-                    <h3>Kurs</h3>
-                </div>
-                <div id="kurs_head" class="row mb-3">
-                    <label for="yearKurs" class="col-md-4 col-form-label"><h5>Year</h5></label>
-                    <label for="place" class="col-md-4 col-form-label"><h5>Place</h5></label>
-                    <label for="course" class="col-md-4 col-form-label"><h5>Course</h5></label>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <input type="month" class="form-control" id="yearKurs">
-                    </div>
-                    <div class="col-md-4">
-                       <input type="text" class="form-control" id="place">
-                   </div>
-                    <div class="col-md-4">
-                       <input type="text" class="form-control" id="course">
-                   </div>
-                </div>
-
-            </form>
-        </div>    
-        
-
-    </div>
-
+        </tr>
+    </table>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
