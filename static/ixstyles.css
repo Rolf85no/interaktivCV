@@ -53,48 +53,24 @@ pre{
 }
 
 .cv h1{
-    color: #105652;
+    color: black;
     text-align: left;
     font-size: 2rem;
 }
 
-.cv h2{
+.cv h3{
+    color: black;
     text-align: left;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.75rem;
+    font-weight: lighter;
 }
 
-.cv caption{
-    margin: 20px auto;
-    color: #105652;
-    text-align: left;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
 
 .container-fluid{
     background-color: #FBF3E4;
     padding: 50px 0;
     width: 100%;
 
-}
-
-.cv tbody td,tr, th[scope="row"] {
-    border: 1px solid black;
-
-}
-
-.cv td, th[scope="row"]{
-    padding: 3px;
-}
-
-.cv td[scope="col"]{
-    width: 10%;
-
-}
-
-#cv-form{
-    margin-top: 100px;
 }
 
 .centered_btn{
@@ -168,12 +144,16 @@ pre{
 
 /********ID****/
 
+#cv-form{
+    margin-top: 100px;
+}
+
 #cvKompetanse{
     width: 100%;
     border:1px solid;
     background-color: lightgrey;
     min-height: 30vh;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 
 }
 

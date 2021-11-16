@@ -140,7 +140,7 @@
                             </div>
 
                             <div class="centered_btn">
-                                <button type="button" class="btn btn-primary" id="addWork" onclick="addLine(document.getElementById('work_row'),document.getElementById('cvWork_row'))">+</button>
+                                <button type="button" class="btn btn-primary" id="addWork" onclick="addLine(document.getElementById('work_row'),document.getElementById('cvWork_row'), 1)">+</button>
                             </div>
                             
                             <hr class="break">
@@ -157,18 +157,24 @@
                             </div>
 
                             <!---------------Kurs-row------------>
-                            <div class="row mb-3">
+                            <div class="row mb-3" id="kurs_row">
                                 <div class="col-md-4">
                                     <input type="month" class="form-control" id="yearKurs">
                                 </div>
+
                                 <div class="col-md-4">
-                                <input type="text" class="form-control" id="place">
-                            </div>
+                                    <input type="text" class="form-control" id="place">
+                                </div>
+
                                 <div class="col-md-4">
-                                <input type="text" class="form-control" id="course">
-                            </div>
+                                    <input type="text" class="form-control" id="course">
+                                </div>
+
                             </div>
 
+                            <div class="centered_btn">
+                                <button type="button" class="btn btn-primary" id="addKurs" onclick="addLine(document.getElementById('kurs_row'),document.getElementById('cvKurs_row'), 2)">+</button>
+                            </div>
                         </form>
                     </div>    
                     
@@ -252,8 +258,9 @@
                             </div>
 
                             <hr class="break-cv"> 
+                            <br>
 
-                            <!----------------CV-arbeidserfaring---------->
+                            <!----------------CV-Yrkeserfaring---------->
 
                             <div class="row mb-1">
                                 <h3>Yrkeserfaring</h3>
@@ -279,8 +286,10 @@
                             </div>
                             </div>
                             
-                            <hr class="break"> 
+                            <hr class="break-cv"> 
+                            <br>
 
+                            <!-----------------------------CV Kurs------------------->
                             <div class="row mb-1">
                                 <h3>Kurs</h3>
                             </div>
@@ -290,7 +299,9 @@
                                 <label for="cvCourse" class="col-md-4 col-form-label"><h5>Course</h5></label>
                             </div>
 
-                            <div class="row mb-3">
+                            <!----------------------------CV-kurs_row--------------->
+
+                            <div class="row mb-3" id="cvKurs_row">
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" id="cvYearKurs">
                                 </div>
@@ -301,6 +312,8 @@
                                 <input type="text" class="form-control" id="cvCourse">
                                 </div>
                             </div>
+
+                            <hr class="break-cv"> 
                 
             
                         <button class="download"> Download PDF </button>

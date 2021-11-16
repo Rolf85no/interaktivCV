@@ -1,4 +1,3 @@
-import re
 from flask import Flask, render_template, redirect
 from flask_session import Session
 from tempfile import mkdtemp
