@@ -91,23 +91,37 @@
                             <div class="row mb-1">
                                 <h3> Utdannelse</h3>
                             </div>
-                            <div id="ed_head"class="row mb-3">
-                                <label for="yearEd" class="col-md-4 col-form-label"><h5>Year</h5></label>
-                                <label for="university" class="col-md-4 col-form-label"><h5>University</h5></label>
-                                <label for="speciality" class="col-md-4 col-form-label"><h5>Speciality</h5></label>
-                            </div>
 
                             <!-------Utdannelse--------------->
-                            <div class="row mb-3" id="utdanning_row">
-                                <div class="col-md-4">
-                                    <input type="month" class="form-control" id="yearEd">
+                            <div id="utdanning_row">
+                                <div id="edYear_head"class="row mb-3">
+                                    <label for="yearEd" class="col-md-6 col-form-label"><h5>Year start</h5></label>
+                                    <label for="yearEdEnd" class="col-md-6 col-form-label"><h5>Year end</h5></label>
                                 </div>
-                                <div class="col-md-4">
-                                <input type="text" class="form-control" id="university">
-                            </div>
-                                <div class="col-md-4">
-                                <input type="text" class="form-control" id="speciality">
-                            </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <input type="month" class="form-control" id="yearEd">
+                                    </div>
+                    
+                                    <div class="col-md-6">
+                                        <input type="month" class="form-control" id="yearEdEnd">
+                                    </div>
+                                </div>
+                                
+                                <div id="ed_head" class="row mb-3">
+                                    <label for="university" class="col-md-6 col-form-label"><h5>University</h5></label>
+                                    <label for="speciality" class="col-md-6 col-form-label"><h5>Speciality</h5></label>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" id="university">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" id="speciality">
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="centered_btn">
@@ -120,24 +134,38 @@
                             <div class="row mb-1">
                                 <h3>Yrkeserfaring</h3>
                             </div>
-                            <div id="wrk_head" class="row mb-3">
-                                <label for="yearWork" class="col-md-4 col-form-label"><h5>Year</h5></label>
-                                <label for="company" class="col-md-4 col-form-label"><h5>Company</h5></label>
-                                <label for="title" class="col-md-4 col-form-label"><h5>Title</h5></label>
-                            </div>
 
                             <!----------------work-row-------------->
-                            <div class="row mb-3" id="work_row">
-                                <div class="col-md-4">
-                                    <input type="month" class="form-control" id="yearWork">
+                            <div id="work_row">
+                                <div id="workYear_head" class="row mb-3">
+                                    <label for="yearWork" class="col-md-6 col-form-label"><h5>Year start</h5></label>
+                                    <label for="yearWorkEnd" class="col-md-6 col-form-label"><h5>Year end</h5></label>
                                 </div>
-                                <div class="col-md-4">
-                                <input type="text" class="form-control" id="company">
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <input type="month" class="form-control" id="yearWork">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="month" class="form-control" id="yearWorkEnd">
+                                    </div>
+                                </div>
+
+                                <div id="ed_head" class="row mb-3">
+                                    <label for="company" class="col-md-6 col-form-label"><h5>Company</h5></label>
+                                    <label for="title" class="col-md-6 col-form-label"><h5>Title</h5></label>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" id="company">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" id="title">
+                                    </div>
+                                </div>                      
                             </div>
-                                <div class="col-md-4">
-                                <input type="text" class="form-control" id="title">
-                            </div>
-                            </div>
+                            
 
                             <div class="centered_btn">
                                 <button type="button" class="btn btn-primary" id="addWork" onclick="addLine(document.getElementById('work_row'),document.getElementById('cvWork_row'), 1)">+</button>
@@ -150,24 +178,35 @@
                             <div class="row mb-1">
                                 <h3>Kurs</h3>
                             </div>
-                            <div id="kurs_head" class="row mb-3">
-                                <label for="yearKurs" class="col-md-4 col-form-label"><h5>Year</h5></label>
-                                <label for="place" class="col-md-4 col-form-label"><h5>Place</h5></label>
-                                <label for="course" class="col-md-4 col-form-label"><h5>Course</h5></label>
-                            </div>
-
                             <!---------------Kurs-row------------>
-                            <div class="row mb-3" id="kurs_row">
-                                <div class="col-md-4">
-                                    <input type="month" class="form-control" id="yearKurs">
+                            <div id="kurs_row">
+                            
+                                <div id="kursYear_head" class="row mb-3">
+                                    <label for="yearKurs" class="col-md-6 col-form-label"><h5>Year start</h5></label>
+                                    <label for="yearKursEnd" class="col-md-6 col-form-label"><h5>Year end</h5></label>
+                                </div>
+                            <!---------------------Kurs year-------------->                  
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <input type="month" class="form-control" id="yearKurs">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="month" class="form-control" id="yearKursEnd">
+                                    </div>
                                 </div>
 
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" id="place">
+                                <div id="kurs_head" class="row mb-3">
+                                    <label for="place" class="col-md-6 col-form-label"><h5>Place</h5></label>
+                                    <label for="course" class="col-md-6 col-form-label"><h5>Course</h5></label>
                                 </div>
-
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" id="course">
+                            <!-------------------Kurs tekst------------------->
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" id="place">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" id="course">
+                                    </div>
                                 </div>
 
                             </div>

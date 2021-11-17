@@ -35,52 +35,61 @@ function copyTextPers(){
     cvKompetanse.value = kompetanse;
 }
 
-function copyTextKomp(){
 
+function copyTextKomp(){
     // Utdannelsesrad kopi
-    var yearEd = document.getElementById("yearEd").value;
+    var yearEd = document.getElementById("yearEd");
+    var yearEdEnd = document.getElementById("yearEdEnd");
     var university = document.getElementById("university").value.trim();
     var speciality = document.getElementById("speciality").value.trim();
     var cvYearEd = document.getElementById("cvYearEd");
     var cvUniversity = document.getElementById("cvUniversity");
     var cvSpeciality = document.getElementById("cvSpeciality");
+  
 
     if (i > 1){
-        cvArray[i-1].querySelector(`#cvYe${i-1}`).value = utArray[i-1].querySelector(`#yearEd${i-1}`).value;
+        cvArray[i-1].querySelector(`#cvYe${i-1}`).value = utArray[i-1].querySelector(`#yearEd${i-1}`).value + " - " + utArray[i-1].querySelector(`#yearEdEnd${i-1}`).value;
         cvArray[i-1].querySelector(`#cvUni${i-1}`).value = utArray[i-1].querySelector(`#university${i-1}`).value;
-        cvArray[i-1].querySelector(`#cvSpec${i-1}`).value = utArray[i-1].querySelector(`#speciality${i-1}`).value;  
+        cvArray[i-1].querySelector(`#cvSpec${i-1}`).value = utArray[i-1].querySelector(`#speciality${i-1}`).value;
+        
+        utArray[i-1].querySelector(`#yearEdEnd${i-1}`).min = utArray[i-1].querySelector(`#yearEd${i-1}`).value;
     } 
 
     else{
-        cvYearEd.value = yearEd;
+        yearEdEnd.min = yearEd.value;
+        cvYearEd.value = yearEd.value + " - " + yearEdEnd.value;
         cvUniversity.value = university;
         cvSpeciality.value = speciality;
     }
 
     // Work rad kopi
-    var yearWork = document.getElementById("yearWork").value;
+    var yearWork = document.getElementById("yearWork");
+    var yearWorkEnd = document.getElementById("yearWorkEnd");
     var company = document.getElementById("company").value.trim();
     var title = document.getElementById("title").value.trim();
     var cvYearWork = document.getElementById("cvYearWork");
     var cvCompany = document.getElementById("cvCompany");
-    var cvTitle = document.getElementById("cvTitle");   
+    var cvTitle = document.getElementById("cvTitle"); 
     
     if (wCount > 1){
         // Skrivinga henger en counter etter ny rad.
-        cvWorkArray[wCount-1].querySelector(`#cvYearWork${wCount-1}`).value = workArray[wCount-1].querySelector(`#yearWork${wCount-1}`).value;
+        cvWorkArray[wCount-1].querySelector(`#cvYearWork${wCount-1}`).value = workArray[wCount-1].querySelector(`#yearWork${wCount-1}`).value + " - " + workArray[wCount-1].querySelector(`#yearWorkEnd${wCount-1}`).value;
         cvWorkArray[wCount-1].querySelector(`#cvCompany${wCount-1}`).value = workArray[wCount-1].querySelector(`#company${wCount-1}`).value;
         cvWorkArray[wCount-1].querySelector(`#cvTitle${wCount-1}`).value = workArray[wCount-1].querySelector(`#title${wCount-1}`).value;
 
+        workArray[wCount-1].querySelector(`#YearWorkEnd${wCount-1}`).min = workArray[wCount-1].querySelector(`#YearWork${wCount-1}`).value
     }
 
     else{
-        cvYearWork.value = yearWork;
+        yearWorkEnd.min = yearWork.value;
+        cvYearWork.value = yearWork.value + " - " + yearWorkEnd.value;
         cvCompany.value = company;
         cvTitle.value = title;
     }
 
     // Kurs rad kopi
-    var yearKurs = document.getElementById("yearKurs").value;
+    var yearKurs = document.getElementById("yearKurs");
+    var yearKursEnd = document.getElementById("yearKursEnd");
     var place = document.getElementById("place").value.trim();
     var course = document.getElementById("course").value.trim();
     var cvYearKurs = document.getElementById("cvYearKurs");
@@ -90,13 +99,15 @@ function copyTextKomp(){
     
     if (kCount > 1){
         // Skrivinga henger en counter etter ny rad.
-        cvKursArray[kCount-1].querySelector(`#cvYearKurs${kCount-1}`).value = kursArray[kCount-1].querySelector(`#yearKurs${kCount-1}`).value;
+        cvKursArray[kCount-1].querySelector(`#cvYearKurs${kCount-1}`).value = kursArray[kCount-1].querySelector(`#yearKurs${kCount-1}`).value + " - " + kursArray[kCount-1].querySelector(`#yearKursEnd${kCount-1}`).value ;
         cvKursArray[kCount-1].querySelector(`#cvPlace${kCount-1}`).value = kursArray[kCount-1].querySelector(`#place${kCount-1}`).value;
         cvKursArray[kCount-1].querySelector(`#cvCourse${kCount-1}`).value = kursArray[kCount-1].querySelector(`#course${kCount-1}`).value;
-
+        
+        kursArray[kCount-1].querySelector(`#yearKursEnd${kCount-1}`).min = kursArray[kCount-1].querySelector(`#yearKurs${kCount-1}`).value;
     }
     else{
-        cvYearKurs.value = yearKurs;
+        yearKursEnd.min = yearKurs.value;
+        cvYearKurs.value = yearKurs.value + " - " + yearKursEnd.value;
         cvPlace.value = place;
         cvCourse.value = course;
     }
@@ -163,6 +174,9 @@ function addLine(firstRow, cvFirstrow, whichLine){
                 // Form rename id 
                 newYear  = newRow.querySelector("#yearEd");
                 newYear.id = `yearEd${i}`;
+                newYearEnd  = newRow.querySelector("#yearEdEnd");
+                newYearEnd.id = `yearEdEnd${i}`;
+                newYearEnd.min = '';
                 newUni  = newRow.querySelector("#university");
                 newUni.id = `university${i}`;
                 newSpec  = newRow.querySelector("#speciality");
@@ -193,6 +207,8 @@ function addLine(firstRow, cvFirstrow, whichLine){
                 // Rename form siden jeg har duplisert den forrige raden har hver column samme navn som forrige
                 newYear  = utArray[i].querySelector(`#yearEd${i-1}`);
                 newYear.id = `yearEd${i}`;
+                newYearEnd  = utArray[i].querySelector(`#yearEdEnd${i-1}`);
+                newYearEnd.id = `yearEdEnd${i}`;
                 newUni  = utArray[i].querySelector(`#university${i-1}`);
                 newUni.id = `university${i}`;
                 newSpec = utArray[i].querySelector(`#speciality${i-1}`);
@@ -228,6 +244,9 @@ function addLine(firstRow, cvFirstrow, whichLine){
                 //Form work id change
                 newYear = newRow.querySelector("#yearWork");
                 newYear.id = `yearWork${wCount}`;
+                newYearEnd  = newRow.querySelector("#yearWorkEnd");
+                newYearEnd.id = `yearWorkEnd${wCount}`;
+                newYearEnd.min = '';
                 newComp = newRow.querySelector("#company");
                 newComp.id = `company${wCount}`;
                 newTitle = newRow.querySelector("#title");
@@ -261,6 +280,8 @@ function addLine(firstRow, cvFirstrow, whichLine){
                 // Setter ny id på column
                 newYear = workArray[wCount].querySelector(`#yearWork${wCount-1}`);
                 newYear.id = `yearWork${wCount}`;
+                newYearEnd  = workArray[wCount].querySelector(`#yearWorkEnd${wCount-1}`);
+                newYearEnd.id = `yearWorkEnd${wCount}`;
                 newComp = workArray[wCount].querySelector(`#company${wCount-1}`);
                 newComp.id = `company${wCount}`;
                 newTitle = workArray[wCount].querySelector(`#title${wCount-1}`);
@@ -295,6 +316,9 @@ function addLine(firstRow, cvFirstrow, whichLine){
                 //Form kurs id change
                 newYear = newRow.querySelector("#yearKurs");
                 newYear.id = `yearKurs${kCount}`;
+                newYearEnd  = newRow.querySelector("#yearKursEnd");
+                newYearEnd.id = `yearKursEnd${kCount}`;
+                newYearEnd.min = '';
                 newComp = newRow.querySelector("#place");
                 newComp.id = `place${kCount}`;
                 newTitle = newRow.querySelector("#course");
@@ -328,6 +352,8 @@ function addLine(firstRow, cvFirstrow, whichLine){
                 // Setter ny id på column
                 newYear = kursArray[kCount].querySelector(`#yearKurs${kCount-1}`);
                 newYear.id = `yearKurs${kCount}`;
+                newYearEnd  = workArray[wCount].querySelector(`#yearKursEnd${kCount-1}`);
+                newYearEnd.id = `yearKursEnd${kCount}`;
                 newComp = kursArray[kCount].querySelector(`#place${kCount-1}`);
                 newComp.id = `place${kCount}`;
                 newTitle = kursArray[kCount].querySelector(`#course${kCount-1}`);
