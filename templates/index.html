@@ -16,27 +16,27 @@
         <tr>
             <td class="skjema">
 
-                <div class="container-fluid" >
+                <div class="container-fluid" id="formValues">
 
-                    <div class="container-top" id="personalia">
+                    <div class="container-top">
                         <form>
                             <!-- Navn, adresse, etc--> 
                             <div class="row mb-3">
                                 <label for="navn" class="col-sm-2 col-form-label">Full name:</label>
                                 <div class="col-sm-10">
-                                <input type="text" class="form-control" id="navn"></div>
+                                <input type="text" class="form-control" id="navn" onkeyup="copyText(document.getElementById('navn'), document.getElementById('cvNavn'))"></div>
                         
                             </div>
                             <div class="row mb-3">
                                 <label for="adresse" class="col-sm-2 col-form-label">Adresse:</label>
                                 <div class="col-sm-10">
-                                <input type="text" class="form-control" id="adresse"> </div>
+                                <input type="text" class="form-control" id="adresse" onkeyup="copyText(document.getElementById('adresse'), document.getElementById('cvAdresse'))"> </div>
                             </div>
                             
                             <div class="row mb-3">
                                 <label for="mail" class="col-sm-2 col-form-label">Mail:</label>
                                 <div class="col-sm-10">
-                                <input type="email" class="form-control" id="email"></div>
+                                <input type="email" class="form-control" id="mail" onkeyup="copyText(document.getElementById('mail'), document.getElementById('cvMail'))"></div>
                             </div>
                             
                             <div class="row mb-3">
@@ -48,13 +48,13 @@
                                         <option value="Russia">🇷🇺</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-8"><input type="number" maxlength="8" class="form-control" aria-label="mobil" id="mobil"></div>    
+                                <div class="col-sm-8"><input type="text" maxlength="8" class="form-control" aria-label="mobil" id="mobil" onkeyup="copyText(document.getElementById('mobil'), document.getElementById('cvMobil'))"></div>    
                             </div>
 
                             <div class="row mb-3">
                                 <label for="sivilstand" class="col-sm-2 col-form-label">Sivilstand:</label>
                                 <div class="col-sm-10"> 
-                                    <select class="form-select" aria-label="sivilstand" id="sivilstand">
+                                    <select class="form-select" aria-label="sivilstand" id="sivilstand" onchange="copyText(document.getElementById('sivilstand'), document.getElementById('cvSivilstand'))">
                                         <option selected></option>
                                         <option value="Ugift">Ugift</option>
                                         <option value="Gift">Gift</option>
@@ -66,17 +66,17 @@
                             <div class="row mb-3">
                                 <label for="fodt" class="col-sm-2 col-form-label">Født:</label>
                                 <div class="col-sm-10">
-                                <input type="date" class="form-control" id="fodt"></div>
+                                <input type="date" class="form-control" id="fodt" onchange="copyText(document.getElementById('fodt'), document.getElementById('cvFodt'))"></div>
                             </div>
 
                             <div class="centered_btn">
-                                    <button type="submit" class="btn btn-primary" onClick="reset()">Reset</button>
+                                    <button type="submit" class="btn btn-primary" onClick="reset(document.getElementById('formValues'))">Reset</button>
                             </div>
 
                             <h3>Nøkkelkompetanse:</h3>
                             <div class="row mb-3">
                                 <div class="col-12"> 
-                                    <textarea class="form-control" id="kompetanse"></textarea>
+                                    <textarea class="form-control" id="kompetanse"onkeyup="copyText(document.getElementById('kompetanse'), document.getElementById('cvKompetanse'))"></textarea>
                                 </div>
                             </div>
 
@@ -99,7 +99,7 @@
                                     <label for="yearEdEnd" class="col-md-6 col-form-label"><h5>Year end</h5></label>
                                 </div>
 
-                                <div class="row mb-3">
+                                <div class="row mb-3" onchange="copyYear(document.getElementById('yearEd'), document.getElementById('yearEdEnd'), document.getElementById('cvyearEd'))">
                                     <div class="col-md-6">
                                         <input type="month" class="form-control" id="yearEd">
                                     </div>
@@ -114,18 +114,18 @@
                                     <label for="speciality" class="col-md-6 col-form-label"><h5>Speciality</h5></label>
                                 </div>
 
-                                <div class="row mb-3">
+                                <div class="row mb-3" id="school">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" id="university">
+                                        <input type="text" class="form-control" id="university" onkeyup="copyText(document.getElementById('university'), document.getElementById('cvuniversity'))">
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" id="speciality">
+                                        <input type="text" class="form-control" id="speciality" onkeyup="copyText(document.getElementById('speciality'), document.getElementById('cvspeciality'))">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="centered_btn">
-                                <button type="button" class="btn btn-primary" id="addEd" onclick="addLine(document.getElementById('utdanning_row'),document.getElementById('cvUtdanning_row'), 0)">+</button>
+                                <button type="button" class="btn btn-primary" id="addEd" onclick="addLine(document.getElementById('utdanning_row'),document.getElementById('myTable').rows.namedItem('cvutdanning_row'))">+</button>
                             </div>
 
                             <hr class="break"> 
@@ -168,7 +168,7 @@
                             
 
                             <div class="centered_btn">
-                                <button type="button" class="btn btn-primary" id="addWork" onclick="addLine(document.getElementById('work_row'),document.getElementById('cvWork_row'), 1)">+</button>
+                                <button type="button" class="btn btn-primary" id="addWork" onclick="addLine(document.getElementById('work_row'),document.getElementById('cvWork_row'), document.getElementById('cvyearEd'))">+</button>
                             </div>
                             
                             <hr class="break">
@@ -212,7 +212,7 @@
                             </div>
 
                             <div class="centered_btn">
-                                <button type="button" class="btn btn-primary" id="addKurs" onclick="addLine(document.getElementById('kurs_row'),document.getElementById('cvKurs_row'), 2)">+</button>
+                                <button type="button" class="btn btn-primary" id="addKurs" onclick="addLine(document.getElementById('kurs_row'),document.getElementById('cvKurs_row'))">+</button>
                             </div>
                         </form>
                     </div>    
@@ -224,140 +224,49 @@
             <!----------------------------------------CV-------------------->
 
             <td class="cv">
-                    <form id="cv-form">
-                        <!-- Navn, adresse, etc--> 
-                        <div class="row mb-3">
-                            <label for="cvNavn" class="col-sm-2 col-form-label">Full name:</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" id="cvNavn"></div>
-                    
-                        </div>
-                        <div class="row mb-3">
-                            <label for="cvAdresse" class="col-sm-2 col-form-label">Adresse:</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" id="cvAdresse"> </div>
-                        </div>
+                    <table>
+                        <tr>
+                            <td> Navn: </td>
+                            <td><div id="cvNavn"> </div></td>
+                        </tr>
+                        <tr>
+                            <td> Adresse: </td>
+                            <td><div id="cvAdresse"> </div></td>
+                        </tr>
+                        <tr>
+                            <td> Mailadresse: </td>
+                            <td><div id="cvMail"> </div></td>
+                        </tr>
+                        <tr>
+                            <td> Mobil: </td>
+                            <td><div id="cvMobil"> </div></td>
+                        </tr>
+                        <tr>
+                            <td> Sivilstand: </td>
+                            <td><div id="cvSivilstand"> </div></td>
+                        </tr>
+                        <tr>
+                            <td> Født: </td>
+                            <td><div id="cvFodt"> </div></td>
+                        </tr>
+                    </table>
+                    <div id="cvBox">
+                        <h3>Nøkkelkompetanse</h3>
+                        <pre id="cvKompetanse"> </pre>
+                    </div>
+
+                    <h3> Utdannelse</h3>
+                    <table id="myTable">
+                        <tr id="cvutdanning_row">
+                            <td id="cvyearEd"> </td>
+                            <td id="cvuniversity"></td>
+                            <td id="cvspeciality"> </td>
+                        </tr>
                         
-                        <div class="row mb-3">
-                            <label for="cvEmail" class="col-sm-2 col-form-label">Mail:</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" id="cvEmail"></div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="cvMobil" class="col-sm-2 col-form-label">Mobil:</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" id="cvMobil"></div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="cvSivilstand" class="col-sm-2 col-form-label">Sivilstand</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" id="cvSivilstand"> </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="cvFodt" class="col-sm-2 col-form-label">Født:</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" id="cvFodt"></div>
-                        </div>
-
-                        <hr class="break-cv">
-                </div>
-
-                    <h3>Nøkkelkompetanse:</h3>
-                            <div class="row mb-3">
-                                <div class="col-12"> 
-                                    <textarea class="form-control" id="cvKompetanse"></textarea>
-                                </div>
-                            </div>
-
-                            <hr class="break"> 
-
-                            <!--------------CV-Utdannelse---------->
-
-                            <div class="row mb-1"><h3> Utdannelse</h3></div>
-
-                            <div id="ed_head"class="row mb-3">
-                                <label for="cvYearEd" class="col-md-4 col-form-label"><h5>Year</h5></label>
-                                <label for="cvUniversity" class="col-md-4 col-form-label"><h5>University</h5></label>
-                                <label for="cvSpeciality" class="col-md-4 col-form-label"><h5>Speciality</h5></label>
-                            </div>
-
-                            <div class="row mb-3" id="cvUtdanning_row">
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" id="cvYearEd">
-                                </div>
-                                <div class="col-md-4">
-                                <input type="text" class="form-control" id="cvUniversity">
-                            </div>
-                                <div class="col-md-4">
-                                <input type="text" class="form-control" id="cvSpeciality">
-                            </div>
-                            </div>
-
-                            <hr class="break-cv"> 
-                            <br>
-
-                            <!----------------CV-Yrkeserfaring---------->
-
-                            <div class="row mb-1">
-                                <h3>Yrkeserfaring</h3>
-                            </div>
-
-                            <div id="wrk_head" class="row mb-3">
-                                <label for="cvYearWork" class="col-md-4 col-form-label"><h5>Year</h5></label>
-                                <label for="cvCompany" class="col-md-4 col-form-label"><h5>Company</h5></label>
-                                <label for="cvTitle" class="col-md-4 col-form-label"><h5>Title</h5></label>
-                            </div>
-
-                            <!----------------CV-work-row-------------->
-
-                            <div class="row mb-3" id="cvWork_row">
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" id="cvYearWork">
-                                </div>
-                                <div class="col-md-4">
-                                <input type="text" class="form-control" id="cvCompany">
-                            </div>
-                                <div class="col-md-4">
-                                <input type="text" class="form-control" id="cvTitle">
-                            </div>
-                            </div>
-                            
-                            <hr class="break-cv"> 
-                            <br>
-
-                            <!-----------------------------CV Kurs------------------->
-                            <div class="row mb-1">
-                                <h3>Kurs</h3>
-                            </div>
-                            <div id="kurs_head" class="row mb-3">
-                                <label for="cvYearKurs" class="col-md-4 col-form-label"><h5>Year</h5></label>
-                                <label for="cvPlace" class="col-md-4 col-form-label"><h5>Place</h5></label>
-                                <label for="cvCourse" class="col-md-4 col-form-label"><h5>Course</h5></label>
-                            </div>
-
-                            <!----------------------------CV-kurs_row--------------->
-
-                            <div class="row mb-3" id="cvKurs_row">
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" id="cvYearKurs">
-                                </div>
-                                <div class="col-md-4">
-                                <input type="text" class="form-control" id="cvPlace">
-                            </div>
-                                <div class="col-md-4">
-                                <input type="text" class="form-control" id="cvCourse">
-                                </div>
-                            </div>
-
-                            <hr class="break-cv"> 
-                
-            
+                    </table>
+             
                         <button class="download"> Download PDF </button>
                 
-                </form>
                 <script src="static/main.js"></script>
             
             </td>
