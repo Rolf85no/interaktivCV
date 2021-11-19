@@ -24,19 +24,19 @@
                             <div class="row mb-3">
                                 <label for="navn" class="col-sm-2 col-form-label">Full name:</label>
                                 <div class="col-sm-10">
-                                <input type="text" class="form-control" id="navn" onkeyup="copyText(document.getElementById('navn'), document.getElementById('cvNavn'))"></div>
+                                <input type="text" class="form-control" id="navn" onkeyup="copyText(document.getElementById(this.id))"></div>
                         
                             </div>
                             <div class="row mb-3">
                                 <label for="adresse" class="col-sm-2 col-form-label">Adresse:</label>
                                 <div class="col-sm-10">
-                                <input type="text" class="form-control" id="adresse" onkeyup="copyText(document.getElementById('adresse'), document.getElementById('cvAdresse'))"> </div>
+                                <input type="text" class="form-control" id="adresse" onkeyup="copyText(document.getElementById(this.id))"> </div>
                             </div>
                             
                             <div class="row mb-3">
                                 <label for="mail" class="col-sm-2 col-form-label">Mail:</label>
                                 <div class="col-sm-10">
-                                <input type="email" class="form-control" id="mail" onkeyup="copyText(document.getElementById('mail'), document.getElementById('cvMail'))"></div>
+                                <input type="email" class="form-control" id="mail" onkeyup="copyText(document.getElementById(this.id))"></div>
                             </div>
                             
                             <div class="row mb-3">
@@ -48,13 +48,13 @@
                                         <option value="Russia">🇷🇺</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-8"><input type="text" maxlength="8" class="form-control" aria-label="mobil" id="mobil" onkeyup="copyText(document.getElementById('mobil'), document.getElementById('cvMobil'))"></div>    
+                                <div class="col-sm-8"><input type="text" maxlength="8" class="form-control" aria-label="mobil" id="mobil" onkeyup="copyText(document.getElementById(this.id))"></div>    
                             </div>
 
                             <div class="row mb-3">
                                 <label for="sivilstand" class="col-sm-2 col-form-label">Sivilstand:</label>
                                 <div class="col-sm-10"> 
-                                    <select class="form-select" aria-label="sivilstand" id="sivilstand" onchange="copyText(document.getElementById('sivilstand'), document.getElementById('cvSivilstand'))">
+                                    <select class="form-select" aria-label="sivilstand" id="sivilstand" onChange="copyText(document.getElementById('sivilstand'))">
                                         <option selected></option>
                                         <option value="Ugift">Ugift</option>
                                         <option value="Gift">Gift</option>
@@ -66,7 +66,7 @@
                             <div class="row mb-3">
                                 <label for="fodt" class="col-sm-2 col-form-label">Født:</label>
                                 <div class="col-sm-10">
-                                <input type="date" class="form-control" id="fodt" onchange="copyText(document.getElementById('fodt'), document.getElementById('cvFodt'))"></div>
+                                <input type="date" class="form-control" id="fodt" onclick="copyText(document.getElementById('fodt'))"></div>
                             </div>
 
                             <div class="centered_btn">
@@ -76,7 +76,7 @@
                             <h3>Nøkkelkompetanse:</h3>
                             <div class="row mb-3">
                                 <div class="col-12"> 
-                                    <textarea class="form-control" id="kompetanse"onkeyup="copyText(document.getElementById('kompetanse'), document.getElementById('cvKompetanse'))"></textarea>
+                                    <textarea class="form-control" id="kompetanse" onkeyup="copyText(document.getElementById(this.id))"></textarea>
                                 </div>
                             </div>
 
@@ -94,12 +94,12 @@
 
                             <!-------Utdannelse--------------->
                             <div id="utdanning_row">
-                                <div id="edYear_head"class="row mb-3">
+                                <div class="row mb-3">
                                     <label for="yearEd" class="col-md-6 col-form-label"><h5>Year start</h5></label>
                                     <label for="yearEdEnd" class="col-md-6 col-form-label"><h5>Year end</h5></label>
                                 </div>
 
-                                <div class="row mb-3" onchange="copyYear(document.getElementById('yearEd'), document.getElementById('yearEdEnd'), document.getElementById('cvyearEd'))">
+                                <div class="row mb-3" id="school" onchange ="copyYear(document.getElementById(this.id).children[0].firstElementChild, document.getElementById(this.id).children[1].firstElementChild)">
                                     <div class="col-md-6">
                                         <input type="month" class="form-control" id="yearEd">
                                     </div>
@@ -109,24 +109,26 @@
                                     </div>
                                 </div>
                                 
-                                <div id="ed_head" class="row mb-3">
+                                <div class="row mb-3">
                                     <label for="university" class="col-md-6 col-form-label"><h5>University</h5></label>
                                     <label for="speciality" class="col-md-6 col-form-label"><h5>Speciality</h5></label>
                                 </div>
 
-                                <div class="row mb-3" id="school">
+                                <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" id="university" onkeyup="copyText(document.getElementById('university'), document.getElementById('cvuniversity'))">
+                                        <input type="text" class="form-control" id="university" onkeyup="copyText(document.getElementById(this.id))">
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" id="speciality" onkeyup="copyText(document.getElementById('speciality'), document.getElementById('cvspeciality'))">
+                                        <input type="text" class="form-control" id="speciality" onkeyup="copyText(document.getElementById(this.id))">
                                     </div>
                                 </div>
+                                <div class="centered_btn">
+                                    <button type="button" class="btn btn-primary" id="addEd" onclick="addLine(document.getElementById(this.parentNode.parentNode.id))">+</button>
+                                </div>
+                                
                             </div>
 
-                            <div class="centered_btn">
-                                <button type="button" class="btn btn-primary" id="addEd" onclick="addLine(document.getElementById('utdanning_row'),document.getElementById('myTable').rows.namedItem('cvutdanning_row'))">+</button>
-                            </div>
+                            
 
                             <hr class="break"> 
 
@@ -142,33 +144,33 @@
                                     <label for="yearWorkEnd" class="col-md-6 col-form-label"><h5>Year end</h5></label>
                                 </div>
 
-                                <div class="row mb-3">
+                                <div class="row mb-3" id="work" onchange ="copyYear(document.getElementById(this.id).children[0].firstElementChild, document.getElementById(this.id).children[1].firstElementChild)">
                                     <div class="col-md-6">
-                                        <input type="month" class="form-control" id="yearWork">
+                                        <input type="month" class="form-control" id="yearWork" >
                                     </div>
                                     <div class="col-md-6">
                                         <input type="month" class="form-control" id="yearWorkEnd">
                                     </div>
                                 </div>
 
-                                <div id="ed_head" class="row mb-3">
+                                <div class="row mb-3">
                                     <label for="company" class="col-md-6 col-form-label"><h5>Company</h5></label>
                                     <label for="title" class="col-md-6 col-form-label"><h5>Title</h5></label>
                                 </div>
 
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" id="company">
+                                        <input type="text" class="form-control" id="company" onkeyup="copyText(document.getElementById(this.id))">
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" id="title">
+                                        <input type="text" class="form-control" id="title" onkeyup="copyText(document.getElementById(this.id))">
                                     </div>
-                                </div>                      
-                            </div>
-                            
+                                </div>
+                                
+                                <div class="centered_btn">
+                                    <button type="button" class="btn btn-primary" id="addWork" onclick="addLine(document.getElementById(this.parentNode.parentNode.id))">+</button>
+                                </div>
 
-                            <div class="centered_btn">
-                                <button type="button" class="btn btn-primary" id="addWork" onclick="addLine(document.getElementById('work_row'),document.getElementById('cvWork_row'), document.getElementById('cvyearEd'))">+</button>
                             </div>
                             
                             <hr class="break">
@@ -181,12 +183,12 @@
                             <!---------------Kurs-row------------>
                             <div id="kurs_row">
                             
-                                <div id="kursYear_head" class="row mb-3">
+                                <div class="row mb-3">
                                     <label for="yearKurs" class="col-md-6 col-form-label"><h5>Year start</h5></label>
                                     <label for="yearKursEnd" class="col-md-6 col-form-label"><h5>Year end</h5></label>
                                 </div>
                             <!---------------------Kurs year-------------->                  
-                                <div class="row mb-3">
+                                <div class="row mb-3" id="kurs" onchange ="copyYear(document.getElementById(this.id).children[0].firstElementChild, document.getElementById(this.id).children[1].firstElementChild)">
                                     <div class="col-md-6">
                                         <input type="month" class="form-control" id="yearKurs">
                                     </div>
@@ -202,18 +204,20 @@
                             <!-------------------Kurs tekst------------------->
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" id="place">
+                                        <input type="text" class="form-control" id="place" onkeyup="copyText(document.getElementById(this.id))">
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" id="course">
+                                        <input type="text" class="form-control" id="course" onkeyup="copyText(document.getElementById(this.id))">
                                     </div>
                                 </div>
+                                <div class="centered_btn">
+                                    <button type="button" class="btn btn-primary" id="addKurs" onclick="addLine(document.getElementById(this.parentNode.parentNode.id))">+</button>
+                                </div>
 
+                               
                             </div>
 
-                            <div class="centered_btn">
-                                <button type="button" class="btn btn-primary" id="addKurs" onclick="addLine(document.getElementById('kurs_row'),document.getElementById('cvKurs_row'))">+</button>
-                            </div>
+                            
                         </form>
                     </div>    
                     
@@ -227,42 +231,62 @@
                     <table>
                         <tr>
                             <td> Navn: </td>
-                            <td><div id="cvNavn"> </div></td>
+                            <td><div id="cvnavn"> </div></td>
                         </tr>
                         <tr>
                             <td> Adresse: </td>
-                            <td><div id="cvAdresse"> </div></td>
+                            <td><div id="cvadresse"> </div></td>
                         </tr>
                         <tr>
                             <td> Mailadresse: </td>
-                            <td><div id="cvMail"> </div></td>
+                            <td><div id="cvmail"> </div></td>
                         </tr>
                         <tr>
                             <td> Mobil: </td>
-                            <td><div id="cvMobil"> </div></td>
+                            <td><div id="cvmobil"> </div></td>
                         </tr>
                         <tr>
                             <td> Sivilstand: </td>
-                            <td><div id="cvSivilstand"> </div></td>
+                            <td><div id="cvsivilstand"> </div></td>
                         </tr>
                         <tr>
                             <td> Født: </td>
-                            <td><div id="cvFodt"> </div></td>
+                            <td><div id="cvfodt"> </div></td>
                         </tr>
                     </table>
                     <div id="cvBox">
                         <h3>Nøkkelkompetanse</h3>
-                        <pre id="cvKompetanse"> </pre>
+                        <pre id="cvkompetanse"> </pre>
                     </div>
 
                     <h3> Utdannelse</h3>
-                    <table id="myTable">
+                    <table id="utdanningTable">
                         <tr id="cvutdanning_row">
                             <td id="cvyearEd"> </td>
                             <td id="cvuniversity"></td>
                             <td id="cvspeciality"> </td>
                         </tr>
                         
+                    </table>
+
+                    <h3> Arbeidserfaring</h3>
+                    <table id="edTable">
+                        <tbody>
+                        <tr id="cvwork_row">
+                            <td id="cvyearWork"> </td>
+                            <td id="cvcompany"></td>
+                            <td id="cvtitle"> </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <h3> Kurs</h3>
+                    <table id="kursTable">
+                        <tr id="cvkurs_row">
+                            <td id="cvyearKurs"> </td>
+                            <td id="cvplace"></td>
+                            <td id="cvcourse"> </td>
+                        </tr>
                     </table>
              
                         <button class="download"> Download PDF </button>

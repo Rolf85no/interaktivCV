@@ -1,10 +1,14 @@
 // Har ikke fått en måte å endre onkeyup og onchange verdier etterhvert som jeg legger til rader.
 
-function copyText(textForm, textCv){
+function copyText(textForm){
+    var textCvName = 'cv' + textForm.id;
+    textCv = document.getElementById(textCvName);
     textCv.innerHTML = textForm.value.trim();
 }
 
-function copyYear(dateStart, dateEnd, dateCv){
+function copyYear(dateStart, dateEnd){
+    var textCvName = 'cv' + dateStart.id;
+    dateCv = document.getElementById(textCvName);
     dateEnd.min = dateStart.value;
     dateCv.innerHTML = dateStart.value + " - " + dateEnd.value;
 }
@@ -19,17 +23,25 @@ function reset(formData){
 
 var i = 0;
 
-function addLine(firstRow, cvFirstRow){
+function addLine(firstRow){
+    /*document.getElementById('myTable').rows.namedItem('cvutdanning_row')*/
     i++;
     var x,y;
+    var textCvName = 'cv' + firstRow.id;
+    var cvFirstRow = document.getElementById(textCvName);
     var newRow = firstRow.cloneNode(true);
     var cvNewRow = cvFirstRow.cloneNode(true);
-    
     newRow.id = newRow.id + i;
     cvNewRow.id = cvNewRow.id + i;
 
+    // Raden med hoved-id f.eks school
+    var yearRow = firstRow.children[1];
+    yearRow.id = yearRow.id + i;
+    
+    // Selecter alle input-columns
     x =newRow.querySelectorAll('.form-control');
     x[1].min = '';
+    // Selecter alle td innenfor raden i CV
     z = cvNewRow.getElementsByTagName('td');
 
     for(y = 0; y < x.length; y++){
