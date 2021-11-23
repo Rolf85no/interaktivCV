@@ -1,8 +1,15 @@
 function copyText(textForm){
     var textCvName = 'cv' + textForm.id;
     textCv = document.getElementById(textCvName);
-    if (textForm.id != "mail"){
+    if (textForm.id != "mail" && textForm.id != "kompetanse" && textForm.id != "mobil"){
         textCv.innerHTML = capitalize(textForm.value.trim());
+    }
+
+    if(textForm.id === "mobil"){
+
+        if(textForm.value === String(Number(textForm.value))) {
+            textCv.innerHTML = textForm.value.trim();
+          }
     }
     else{
         textCv.innerHTML = textForm.value.trim();

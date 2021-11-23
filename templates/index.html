@@ -22,7 +22,7 @@
                         <form>
                             <!-- Navn, adresse, etc--> 
                             <div class="row mb-3">
-                                <label for="navn" class="col-sm-2 col-form-label">Full name:</label>
+                                <label for="navn" class="col-sm-2 col-form-label">Fullt navn:</label>
                                 <div class="col-sm-10">
                                 <input type="text" class="form-control" id="navn" onkeyup="copyText(document.getElementById(this.id))"></div>
                         
@@ -95,8 +95,8 @@
                             <!-------Utdannelse--------------->
                             <div id="utdanning_row0">
                                 <div class="row mb-3">
-                                    <label for="yearEd" class="col-md-6 col-form-label"><h5>Year start</h5></label>
-                                    <label for="yearEdEnd" class="col-md-6 col-form-label"><h5>Year end</h5></label>
+                                    <label for="yearEd" class="col-md-6 col-form-label"><h5>Start dato</h5></label>
+                                    <label for="yearEdEnd" class="col-md-6 col-form-label"><h5>Slutt dato</h5></label>
                                 </div>
 
                                 <div class="row mb-3" id="school0" onchange ="copyYear(document.getElementById(this.id).children[0].firstElementChild, document.getElementById(this.id).children[1].firstElementChild)">
@@ -110,8 +110,8 @@
                                 </div>
                                 
                                 <div class="row mb-3">
-                                    <label for="university0" class="col-md-6 col-form-label"><h5>University</h5></label>
-                                    <label for="speciality0" class="col-md-6 col-form-label"><h5>Speciality</h5></label>
+                                    <label for="university0" class="col-md-6 col-form-label"><h5>Studiested</h5></label>
+                                    <label for="speciality0" class="col-md-6 col-form-label"><h5>Fag</h5></label>
                                 </div>
 
                                 <div class="row mb-3">
@@ -141,8 +141,8 @@
                             <!----------------work-row-------------->
                             <div id="work_row0">
                                 <div id="workYear_head" class="row mb-3">
-                                    <label for="yearWork" class="col-md-6 col-form-label"><h5>Year start</h5></label>
-                                    <label for="yearWorkEnd" class="col-md-6 col-form-label"><h5>Year end</h5></label>
+                                    <label for="yearWork" class="col-md-6 col-form-label"><h5>Start dato</h5></label>
+                                    <label for="yearWorkEnd" class="col-md-6 col-form-label"><h5>Slutt dato</h5></label>
                                 </div>
 
                                 <div class="row mb-3" id="work0" onchange ="copyYear(document.getElementById(this.id).children[0].firstElementChild, document.getElementById(this.id).children[1].firstElementChild)">
@@ -155,8 +155,8 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="company" class="col-md-6 col-form-label"><h5>Company</h5></label>
-                                    <label for="title" class="col-md-6 col-form-label"><h5>Title</h5></label>
+                                    <label for="company" class="col-md-6 col-form-label"><h5>Selskap</h5></label>
+                                    <label for="title" class="col-md-6 col-form-label"><h5>Stilling</h5></label>
                                 </div>
 
                                 <div class="row mb-3">
@@ -186,8 +186,8 @@
                             <div id="kurs_row0">
                             
                                 <div class="row mb-3">
-                                    <label for="yearKurs" class="col-md-6 col-form-label"><h5>Year start</h5></label>
-                                    <label for="yearKursEnd" class="col-md-6 col-form-label"><h5>Year end</h5></label>
+                                    <label for="yearKurs" class="col-md-6 col-form-label"><h5>Start dato</h5></label>
+                                    <label for="yearKursEnd" class="col-md-6 col-form-label"><h5>Slutt dato</h5></label>
                                 </div>
                             <!---------------------Kurs year-------------->                  
                                 <div class="row mb-3" id="kurs0" onchange ="copyYear(document.getElementById(this.id).children[0].firstElementChild, document.getElementById(this.id).children[1].firstElementChild)">
@@ -200,8 +200,8 @@
                                 </div>
 
                                 <div id="kurs_head" class="row mb-3">
-                                    <label for="place0" class="col-md-6 col-form-label"><h5>Place</h5></label>
-                                    <label for="course0" class="col-md-6 col-form-label"><h5>Course</h5></label>
+                                    <label for="place0" class="col-md-6 col-form-label"><h5>Sted</h5></label>
+                                    <label for="course0" class="col-md-6 col-form-label"><h5>Kurs</h5></label>
                                 </div>
                             <!-------------------Kurs tekst------------------->
                                 <div class="row mb-3">
@@ -397,7 +397,7 @@
 
                     <table>
                         <tr>
-                            <td><button class="download"> Download PDF </button></td>
+                            <td><button class="download"> Last ned PDF </button></td>
                         </tr>
                     </table>
             
