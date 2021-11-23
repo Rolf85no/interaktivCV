@@ -1,9 +1,13 @@
-// Har ikke fått en måte å endre onkeyup og onchange verdier etterhvert som jeg legger til rader.
-
 function copyText(textForm){
     var textCvName = 'cv' + textForm.id;
     textCv = document.getElementById(textCvName);
-    textCv.innerHTML = textForm.value.trim();
+    if (textForm.id != "mail"){
+        textCv.innerHTML = capitalize(textForm.value.trim());
+    }
+    else{
+        textCv.innerHTML = textForm.value.trim();
+    }
+    
 }
 
 function copyYear(dateStart, dateEnd){
@@ -24,6 +28,7 @@ function reset(formData){
 var i = 0;
 
 function addLine(firstRow){
+    len_row = firstRow.children.length - 1;
     /*document.getElementById('myTable').rows.namedItem('cvutdanning_row')*/
     i++;
     var x,y;
@@ -35,9 +40,9 @@ function addLine(firstRow){
     newRow.id = renameVar(newRow.id);
     cvNewRow.id = renameVar(cvNewRow.id);
 
-    var oldButton = firstRow.children[4].children[0]
+    var oldButton = firstRow.children[len_row].children[0]
     oldButton.style.display ="none";
-    var newButton = newRow.children[4].children[0];
+    var newButton = newRow.children[len_row].children[0];
     newButton.id = renameVar(newButton.id);
 
     // Raden med hoved-id f.eks school
@@ -49,15 +54,20 @@ function addLine(firstRow){
     x[1].min = '';
     // Selecter alle td innenfor raden i CV
     z = cvNewRow.getElementsByTagName('td');
+    var andreHead = cvNewRow.getElementsByClassName("andreHead");
+    if (andreHead.length != 0){
+        andreHead[0].style.opacity = 0;
+    }    
+    
 
     for(y = 0; y < x.length; y++){
         x[y].value = '';
-        x[y].id = x[y].id + i;
+        x[y].id = renameVar(x[y].id);
     }
 
     for(var f = 0; f < z.length; f++){
         z[f].innerHTML = '';
-        z[f].id = z[f].id + i;
+        z[f].id = renameVar(z[f].id);
     }
 
     firstRow.parentNode.insertBefore(newRow, firstRow.nextSibling);
@@ -66,22 +76,30 @@ function addLine(firstRow){
 }
 
 function removeLine(firstRow){
+    len_row = firstRow.children.length - 1;
+    var varName = firstRow.id;
     var textCvName = 'cv' + varName;
     var cvFirstRow = document.getElementById(textCvName);
+    var cvNextRow = cvFirstRow.nextSibling;
     var nextRow = firstRow.nextSibling;
     var prevRow = firstRow.previousSibling;
+    
     if (prevRow.id === undefined  && nextRow.id === undefined){
-        alert("Ingen linjer å slette");
+        alert("Må beholde en rad");
     }
     else{
         firstRow.remove();
         cvFirstRow.remove();
+        if (prevRow.id === undefined){   
+            cvNextRow.getElementsByClassName("andreHead")[0].style.opacity = 1;
+        }
+        
         if (nextRow.id === undefined){
-            addButton = prevRow.children[4].children[0];
+            addButton = prevRow.children[len_row].children[0];
             addButton.style.display ="inline-block";
         }
         
-    }        
+    }
 
 }
 
@@ -95,12 +113,8 @@ function renameVar(varName){
 
 
 }
-
-   
              
 
-/*
-// Funksjon for å lage stor bokstav etter space.
 function capitalize(str) {
     var splitStr = str.toLowerCase().split(' ');
     for (let j = 0; j <splitStr.length; j++){
@@ -108,7 +122,3 @@ function capitalize(str) {
     }
     return splitStr.join(' ');
   }
-
-
-
-*/

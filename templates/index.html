@@ -215,12 +215,74 @@
                                 <div class="centered_btn">
                                     <button type="button" class="btn btn-primary" id="addKurs0" onclick="addLine(document.getElementById(this.parentNode.parentNode.id))">+</button>
                                     <button type="button" class="btn btn-primary" onclick="removeLine(document.getElementById(this.parentNode.parentNode.id))">-</button>
+                                </div>   
+                            </div>
+            <!----------------------------Andre opplysinger------------------------->
+                            <div class="row mb-1"> <h3>Andre opplysninger</h3> </div>
+                            <div id="andre_row0">
+                                
+                                <!--------------Språk rad----------------->
+                                <div class="row mb-3">
+                                    <label for="sprak0" class="col-md-4 col-form-label"><h5>Språk</h5></label>
+                                </div> 
+                                <div id="sprak_row0">
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" id="sprak0" onkeyup="copyText(document.getElementById(this.id))">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" id="sprakTxt0" onkeyup="copyText(document.getElementById(this.id))">
+                                        </div>
+                                    </div>
+                                    <div class="centered_btn">
+                                        <button type="button" class="btn btn-primary" id="addSprak0" onclick="addLine(document.getElementById(this.parentNode.parentNode.id))">+</button>
+                                        <button type="button" class="btn btn-primary" onclick="removeLine(document.getElementById(this.parentNode.parentNode.id))">-</button>
+                                    </div>   
                                 </div>
 
-                               
-                            </div>
+                                <!----------------Sertifikat rad---------->
 
-                            
+                                <div class="row mb-3">
+                                    <label for="sertifikat0" class="col-md-4 col-form-label"><h5>Sertifikat</h5></label>    
+                                </div>
+
+                                <div id="sertifikat_row0">
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" id="sertifikat0" onkeyup="copyText(document.getElementById(this.id))">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" id="sertifikatTxt0" onkeyup="copyText(document.getElementById(this.id))">
+                                        </div>
+                                    </div>
+
+                                    <div class="centered_btn">
+                                        <button type="button" class="btn btn-primary" id="addSertifikat0" onclick="addLine(document.getElementById(this.parentNode.parentNode.id))">+</button>
+                                        <button type="button" class="btn btn-primary" onclick="removeLine(document.getElementById(this.parentNode.parentNode.id))">-</button>
+                                    </div> 
+
+                                </div>
+                                <!----------------Interesser rad-------->
+                                <div class="row mb-3">
+                                    <label for="interesser0" class="col-md-4 col-form-label"><h5>Interesser</h5></label>
+                                </div>
+                                <div id="interesser_row0">
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" id="interesser0" onkeyup="copyText(document.getElementById(this.id))">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" id="interesserTxt0" onkeyup="copyText(document.getElementById(this.id))">
+                                        </div>
+                                    </div> 
+                                    
+                                    <div class="centered_btn">
+                                        <button type="button" class="btn btn-primary" id="addInteresser0" onclick="addLine(document.getElementById(this.parentNode.parentNode.id))">+</button>
+                                        <button type="button" class="btn btn-primary" onclick="removeLine(document.getElementById(this.parentNode.parentNode.id))">-</button>
+                                    </div> 
+
+                                </div>
+                            </div>
                         </form>
                     </div>    
                     
@@ -231,67 +293,107 @@
             <!----------------------------------------CV-------------------->
 
             <td class="cv">
-                <div class="container-topcv">
-                    <table class="table">
+                <h1 id="curri"> Curriculum vitae </h1>
+                <!------------------------------CV Personalia----------------->
+                <div class="container-topcv">                    
+                    <table class="table table-borderless">
                         <tr>
-                            <td> Navn: </td>
+                            <td class="sideskrift"> Navn: </td>
                             <td><div id="cvnavn"> </div></td>
                         </tr>
                         <tr>
-                            <td> Adresse: </td>
+                            <td class="sideskrift"> Adresse: </td>
                             <td><div id="cvadresse"> </div></td>
                         </tr>
                         <tr>
-                            <td> Mailadresse: </td>
+                            <td class="sideskrift"> Mailadresse: </td>
                             <td><div id="cvmail"> </div></td>
                         </tr>
                         <tr>
-                            <td> Mobil: </td>
+                            <td class="sideskrift"> Mobil: </td>
                             <td><div id="cvmobil"> </div></td>
                         </tr>
                         <tr>
-                            <td> Sivilstand: </td>
+                            <td class="sideskrift"> Sivilstand: </td>
                             <td><div id="cvsivilstand"> </div></td>
                         </tr>
                         <tr>
-                            <td> Født: </td>
+                            <td class="sideskrift"> Født: </td>
                             <td><div id="cvfodt"> </div></td>
                         </tr>
                     </table>
                 </div>
 
-                    <div id="cvBox">
-                        <h3>Nøkkelkompetanse</h3>
-                        <pre id="cvkompetanse"> </pre>
+                <hr class="break">
+                <!----------------------CV Kompetanse--------------------->
+                    <div class="row mb-3">
+                        <div class="col-12" id="cvBox">                    
+                            <h3 class="cvKompHead">Nøkkelkompetanse</h3>
+                            <div id="cvkompetanse"></div>
+                        </div>
                     </div>
+                
+                <!---------------------CV Utdannelse---------------------->
 
                     <h3> Utdannelse</h3>
-                    <table class="exp">
-                        <tr id="cvutdanning_row0">
-                            <td id="cvyearEd0"></td>
+                    <table class="table table-bordered border-dark">
+                        <tr id="cvutdanning_row0" >
+                            <td id="cvyearEd0" style="width:25%"></td>
                             <td id="cvuniversity0"></td>
                             <td id="cvspeciality0"></td>
-                        </tr>
-                        
+                        </tr>   
                     </table>
                 
+                <!---------------------CV Erfaring---------------------->
+                    
                     <h3> Arbeidserfaring</h3>
-                    <table table class="exp">
+                    <table table class="table table-bordered border-dark">
                         <tr id="cvwork_row0">
-                            <td id="cvyearWork0"></td>
+                            <td id="cvyearWork0" style="width:25%"></td>
                             <td id="cvcompany0"></td>
                             <td id="cvtitle0"></td>
                         </tr>
                     </table>
 
+                <!---------------------CV kurs---------------------->    
+
                     <h3> Kurs</h3>
-                    <table class="exp">
+                    <table class="table table-bordered border-dark">
                         <tr id="cvkurs_row0">
-                            <td id="cvyearKurs0"> </td>
+                            <td id="cvyearKurs0" style="width:25%"> </td>
                             <td id="cvplace0"></td>
                             <td id="cvcourse0"> </td>
                         </tr>
                     </table>
+
+                    <hr class="break">
+                <!---------------------CV Andre opplysninger---------------------->
+
+                    <h3> Andre opplysninger</h3>
+                    <table class="table table-bordered border-dark">
+                        <tr id="cvsprak_row0" >
+                            <th scope="col" class="andreHead"> Språk</th>
+                            <td id="cvsprak0"></td>
+                            <td id="cvsprakTxt0"></td>
+                        </tr>   
+                    </table>
+
+                    <table class="table table-bordered border-dark">
+                        <tr id="cvsertifikat_row0" >
+                            <th scope="col" class="andreHead"> Sertifikat</th>
+                            <td id="cvsertifikat0"></td>
+                            <td id="cvsertifikatTxt0"></td>
+                        </tr>   
+                    </table>
+
+                    <table class="table table-bordered border-dark">
+                        <tr id="cvinteresser_row0" >
+                            <th scope="col" class="andreHead"> Interesser</th>
+                            <td id="cvinteresser0"></td>
+                            <td id="cvinteresserTxt0"></td>
+                        </tr>   
+                    </table>
+                    <hr class="break">
 
                     <table>
                         <tr>
@@ -301,9 +403,7 @@
             
             </td>
 
-        </tr>
-
-       
+        </tr>   
                 
     </table>
 

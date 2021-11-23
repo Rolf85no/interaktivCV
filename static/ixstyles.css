@@ -14,22 +14,11 @@ h5{
     font-size: 1rem;
 }
 
-pre{
-    margin: 2px 10px;
-    text-align: left;
-}
-
 
 
 /****************classes*************/
-
-
-.andreoppotabell th[scope="row"]{
-    width: 10%;
-}
-
-.andreoppotabell{
-    margin-bottom: 50px;
+.andreHead{
+    width: 15%;
 }
 
 .break{
@@ -37,14 +26,9 @@ pre{
     opacity: 0;
 }
 
-.break-cv{
-    margin: 103px 0 0;
-    opacity: 0;
-}
-
 
 .cv{
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Georgia, serif;
     width: 50%;
 }
 
@@ -60,6 +44,7 @@ pre{
     font-size: 1.75rem;
     font-weight: lighter;
 }
+
 
 
 .container-fluid{
@@ -81,11 +66,15 @@ pre{
 }
 .container-topcv{
     width: 100%;
-    margin: 100px auto 100px;
+    margin: 50px auto 25px;
 }
 .container-middle{
     width: 80%;
     margin: 0 auto 50px;
+}
+
+.cvKompHead{
+    padding: 10px;
 }
 
 .download {
@@ -138,28 +127,45 @@ pre{
     width: 100%;
 }
 
-.table td{
+.skjema{
     width: 50%;
 }
 
+.sideskrift{
+    width: 10%;
+}
+
+
+
 /********ID****/
+
+#curri{
+    text-align: center;
+}
 
 #cv-form{
     margin-top: 100px;
 }
 
 #cvBox{
-    width: 100%;
     border:1px solid;
     background-color: lightgrey;
     min-height: 30vh;
     margin: 100px auto;
+    width: 95%;
 
+
+}
+
+#cvkompetanse{
+    white-space: pre-wrap;
+    padding: 10px;
 }
 
 #kompetanse{
     min-height: 30vh;
 }
+
 
 
 
