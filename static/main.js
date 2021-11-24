@@ -1,8 +1,8 @@
 function copyText(textForm){
     var textCvName = 'cv' + textForm.id;
     textCv = document.getElementById(textCvName);
-    if (textForm.id != "mail" && textForm.id != "kompetanse" && textForm.id != "mobil"){
-        textCv.innerHTML = capitalize(textForm.value.trim());
+    if (textForm.id === "mail" || textForm.id === "kompetanse" || textForm.id === "mobil"){
+        textCv.innerHTML = textForm.value.trim();
     }
 
     if(textForm.id === "mobil"){
@@ -11,8 +11,8 @@ function copyText(textForm){
             textCv.innerHTML = textForm.value.trim();
           }
     }
-    else{
-        textCv.innerHTML = textForm.value.trim();
+    else{   
+        textCv.innerHTML = capitalize(textForm.value.trim());
     }
     
 }
@@ -38,7 +38,7 @@ function addLine(firstRow){
     len_row = firstRow.children.length - 1;
     /*document.getElementById('myTable').rows.namedItem('cvutdanning_row')*/
     i++;
-    var x,y;
+    var x,y, sprak_select;
     var textCvName = 'cv' + firstRow.id;
     var cvFirstRow = document.getElementById(textCvName);
     var newRow = firstRow.cloneNode(true);
@@ -58,7 +58,14 @@ function addLine(firstRow){
     
     // Selecter alle input-columns
     x =newRow.querySelectorAll('.form-control');
-    x[1].min = '';
+    if (firstRow.id.indexOf('year') != -1){
+        x[1].min = '';
+    }
+    if (firstRow.id.indexOf('sprak') != -1){
+        sprak_select = newRow.querySelector('.form-select');
+        sprak_select.id = renameVar(sprak_select.id);
+    }
+    
     // Selecter alle td innenfor raden i CV
     z = cvNewRow.getElementsByTagName('td');
     var andreHead = cvNewRow.getElementsByClassName("andreHead");
@@ -128,4 +135,16 @@ function capitalize(str) {
         splitStr[j] = splitStr[j].charAt(0).toUpperCase() + splitStr[j].substring(1);
     }
     return splitStr.join(' ');
+  }
+
+  function createPdf(pdf_content, filnavn){
+    var options = {
+        margin:       1,
+        filename:     `${filnavn}.pdf`,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+
+      html2pdf(pdf_content, options);
   }

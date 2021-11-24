@@ -17,10 +17,6 @@ h5{
 
 
 /****************classes*************/
-.andreHead{
-    width: 15%;
-}
-
 .break{
     margin: 25px 0;
     opacity: 0;
@@ -106,6 +102,7 @@ h5{
     text-decoration: none;
  }
 
+
  .main-container{
     margin: 50px 0;
     width: 100%;
@@ -151,15 +148,26 @@ h5{
     border:1px solid;
     background-color: lightgrey;
     min-height: 30vh;
-    margin: 100px auto;
+    margin: 25px auto;
     width: 95%;
-
-
 }
 
 #cvkompetanse{
     white-space: pre-wrap;
     padding: 10px;
+}
+
+#cvTables td{
+    width: 35%;
+
+}
+
+#cvTables .erfaringHead{
+    width: 20%;
+}
+
+#cvTables .andreHead{
+    width: 15%;
 }
 
 #kompetanse{
